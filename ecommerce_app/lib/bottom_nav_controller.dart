@@ -6,7 +6,12 @@ import 'package:ecommerce_app/pages/account.dart';
 
 import 'package:flutter/material.dart';
 
-class BottomNavController extends StatelessWidget {
+class BottomNavController extends StatefulWidget {
+  @override
+  State<BottomNavController> createState() => _BottomNavControllerState();
+}
+
+class _BottomNavControllerState extends State<BottomNavController> {
   final _pages = [
     HomeScreen(),
     MyAdsScreen(),
@@ -14,11 +19,16 @@ class BottomNavController extends StatelessWidget {
     ChatScreen(),
     AccountScreen(),
   ];
+
   int _currentIndex = 0;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       bottomNavigationBar: BottomNavigationBar(
+        selectedItemColor: Color(0xFF5364f4),
+        unselectedItemColor: Color(0xFF9E9E9E),
+        backgroundColor: Colors.white,
         items: [
           BottomNavigationBarItem(
             icon: Icon(Icons.home),
@@ -43,9 +53,12 @@ class BottomNavController extends StatelessWidget {
         ],
         currentIndex: _currentIndex,
         onTap: (int index) {
-          _currentIndex = index;
+          setState(() {
+            _currentIndex = index;
+          });
         },
       ),
+      body: _pages[_currentIndex],
     );
   }
 }
