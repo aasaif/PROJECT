@@ -1,6 +1,15 @@
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatelessWidget {
+  List<String> _categories = [
+    'Food',
+    'Electronics',
+    'Groceries',
+    'Dress',
+    'Fashion',
+    'Gadgets',
+    'Music'
+  ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -126,6 +135,62 @@ class HomeScreen extends StatelessWidget {
                       ),
                     ),
                   ],
+                ),
+              ),
+              SizedBox(height: 30),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    "Top Categories",
+                    style: TextStyle(
+                      fontSize: 18,
+                      fontWeight: FontWeight.w600,
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(right: 20),
+                    child: Text(
+                      "View All",
+                      style: TextStyle(
+                        fontSize: 18,
+                        fontWeight: FontWeight.w600,
+                        color: Colors.red,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+              SizedBox(height: 25),
+              Container(
+                height: 35,
+                child: ListView.builder(
+                  scrollDirection: Axis.horizontal,
+                  itemCount: _categories.length,
+                  itemBuilder: (_, int index) {
+                    return Padding(
+                      padding: const EdgeInsets.only(right: 7),
+                      child: Container(
+                        height: 30,
+                        decoration: BoxDecoration(
+                          color: Colors.grey[400],
+                          borderRadius: BorderRadius.all(Radius.circular(15)),
+                        ),
+                        child: Center(
+                          child: Padding(
+                            padding: const EdgeInsets.only(left: 10, right: 10),
+                            child: Text(
+                              _categories[index],
+                              style: TextStyle(
+                                fontSize: 16,
+                                fontWeight: FontWeight.w600,
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
+                    );
+                  },
                 ),
               ),
             ],
