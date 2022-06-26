@@ -20,7 +20,7 @@ class HomeScreen extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                "Hello Saif",
+                "Hello Friend",
                 style: TextStyle(
                   fontSize: 36,
                   fontWeight: FontWeight.w600,
@@ -193,6 +193,76 @@ class HomeScreen extends StatelessWidget {
                   },
                 ),
               ),
+              SizedBox(height: 20),
+              Expanded(
+                child: GridView.builder(
+                    itemCount: 10,
+                    gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                      crossAxisSpacing: 10,
+                      mainAxisSpacing: 10,
+                      crossAxisCount: 2,
+                    ),
+                    itemBuilder: (_, index) {
+                      return Container(
+                        margin: EdgeInsets.only(
+                            left: 10, top: 10, right: 10, bottom: 10),
+                        height: 180,
+                        width: 170,
+                        decoration: BoxDecoration(
+                          color: Colors.amber,
+                          borderRadius: BorderRadius.all(Radius.circular(20)),
+                        ),
+                        child: Stack(
+                          clipBehavior: Clip.none,
+                          children: [
+                            Positioned(
+                              top: -30,
+                              child: Image.asset(
+                                "assets/watch.png",
+                                height: 180,
+                                width: 170,
+                              ),
+                            ),
+                          ],
+                        ),
+                      );
+                    }),
+              ),
+              /*Card(
+                elevation: 10,
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(15)),
+                child: ListTile(
+                  leading: Icon(Icons.watch, size: 40, color: Colors.amber),
+                  title: Text('Apple Watch'),
+                  subtitle: Text('Series 6.Red'),
+                  trailing: Text('\$359'),
+                ),
+              ),*/
+              SizedBox(height: 20),
+              /*Container(
+                margin:
+                    EdgeInsets.only(left: 10, top: 10, right: 10, bottom: 10),
+                height: 180,
+                width: 170,
+                decoration: BoxDecoration(
+                  color: Colors.amber,
+                  borderRadius: BorderRadius.all(Radius.circular(20)),
+                ),
+                child: Stack(
+                  clipBehavior: Clip.none,
+                  children: [
+                    Positioned(
+                      top: -30,
+                      child: Image.asset(
+                        "assets/watch.png",
+                        height: 180,
+                        width: 170,
+                      ),
+                    ),
+                  ],
+                ),
+              ),*/
             ],
           ),
         ),
